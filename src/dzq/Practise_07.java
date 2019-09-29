@@ -9,25 +9,15 @@ public class Practise_07 {
     public static void main(String[] args) {
         //最后一刀，最大的长度
 
-        int sum = cut(8);
+        int sum = cut1(11);
 
         System.out.println(sum);
 
     }
 
+
+    //非递归
     private static int cut(int n) {
-        if (n <= 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return 1;
-        }
-        if (n == 2) {
-            return 1;
-        }
-        if (n == 3) {
-            return 2;
-        }
         int[] result = new int[n+1];
         result[0] = 0;
         result[1] = 1;
@@ -47,6 +37,25 @@ public class Practise_07 {
         }
 
         return result[n];
+    }
+
+    //递归
+    private static int cut1(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 2;
+        }
+        if (n == 3) {
+            return 3;
+        }
+        int max = 0;
+        for (int i = 1; i <= n / 2; i++) {
+            int result = i * cut1(n - i);
+            max = result > max ? result : max;
+        }
+        return max;
     }
 
 
