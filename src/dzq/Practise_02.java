@@ -37,13 +37,13 @@ public class Practise_02 {
         }
         for (int i = 0; i < ints.length; i++) {
             while (i != ints[i]) {
-                int j = ints[i];
-                if (ints[j] == j) {
-                    return j;
+                int value = ints[i];
+                if (value == ints[value]) {
+                    return value;
                 }
                 int temp = ints[i];
-                ints[i] = ints[j];
-                ints[j] = temp;
+                ints[i] = ints[value];
+                ints[value] = temp;
             }
         }
         return 0;
